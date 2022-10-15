@@ -11,18 +11,29 @@ import RxCocoa
 
 class CharactersController: UIViewController {
     
+    // MARK: - ViewModel
+    
     private var viewModel: CharactersListViewModel!
+    
+    // MARK: - DisposeBag
+    
     let bag = DisposeBag()
+    
+    // MARK: - CharactersView
     
     private var charactersView: CharactersView? {
         guard isViewLoaded else { return nil }
         return view as? CharactersView
     }
+    
+    // MARK: - LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupController()
     }
+    
+    // MARK: - Configuration
     
     private func setupController() {
         view = CharactersView()
@@ -31,18 +42,33 @@ class CharactersController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         charactersView?.tableView.rx.setDelegate(self).disposed(by: bag)
         self.bindViewModel()
+        self.bindCellSelection()
     }
+    
+    // MARK: - Bindings
     
     private func bindViewModel() {
         guard let charactersView = charactersView else { return }
-        self.viewModel.items
-            .asObservable()
-            .observe(on: MainScheduler.instance)
-            .bind(to: charactersView.tableView.rx.items(cellIdentifier: CharacterTableViewCell.identifier, cellType: CharacterTableViewCell.self)) { _, model, cell in
-                cell.configure(with: model)
-                cell.accessoryType = .disclosureIndicator
-            }.disposed(by: bag)
         
+        let input = charactersView.searchController.searchBar
+            .rx
+            .text
+            .orEmpty
+            .observe(on: MainScheduler.asyncInstance)
+            .distinctUntilChanged()
+        
+        Observable.combineLatest(self.viewModel.items, input) { [unowned self] (allChars, query) -> [CharacterViewModel] in
+            return self.viewModel.filterModels(with: allChars, query: query)
+        }
+        .bind(to: charactersView.tableView.rx.items(cellIdentifier: CharacterTableViewCell.identifier, cellType: CharacterTableViewCell.self)) { _, model, cell in
+            cell.configure(with: model)
+            cell.accessoryType = .disclosureIndicator
+        }
+        .disposed(by: bag)
+    }
+    
+    private func bindCellSelection() {
+        guard let charactersView = charactersView else { return }
         charactersView.tableView.rx
             .modelSelected(CharacterViewModel.self)
             .bind { [unowned self] character in
@@ -56,14 +82,11 @@ class CharactersController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDelegate
+
 extension CharactersController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return self.view.bounds.height / 5
     }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//       
-//    }
 }
 

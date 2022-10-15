@@ -31,4 +31,14 @@ class CharactersListViewModel {
                 }
             })
     }
+    
+    func filterModels(with models: [CharacterViewModel], query: String) -> [CharacterViewModel] {
+        if query.isEmpty {
+            return models
+        } else {
+            return models.filter({
+                $0.displaySingleName.hasPrefix(query) || $0.displaySingleNickname.hasPrefix(query)
+            })
+        }
+    }
 }

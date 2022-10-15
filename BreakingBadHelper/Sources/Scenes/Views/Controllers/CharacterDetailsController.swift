@@ -45,7 +45,7 @@ class CharacterDetailsController: UIViewController {
                 if row == 0 {
                     let cell = tv.dequeueReusableCell(withIdentifier: CharacterImageCell.identifier, for: IndexPath(row: row, section: 0)) as! CharacterImageCell
                     print(item)
-                    cell.configure(with: item)
+                    cell.configure(with: item.1)
                     return cell
                 } else {
                     let cell = tv.dequeueReusableCell(withIdentifier: CharacterInfoCell.identifier, for: IndexPath(row: row, section: 0)) as! CharacterInfoCell

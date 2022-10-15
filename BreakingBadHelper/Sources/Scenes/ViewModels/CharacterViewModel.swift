@@ -26,37 +26,39 @@ class CharacterViewModel {
     
     var displayImage: String
     
-    var displayName: String
+    var name: String
     
-    var displayNickname: String
+    var nickname: String
     
-    var displayStatus: String
+    var status: String
     
-    var displayBirthday: String
+    var birthday: String
     
-    var displayAppearence: String
+    var appearences: String
     
-    var displayPortrayed: String
+    var portrayed: String
     
     init(character: Character) {
         self.character = character
         self.displayImage = character.img
-        self.displayName = "Name: \(character.name)"
-        self.displayNickname = "Nickname: \(character.nickname)"
-        self.displayStatus = "Status: \(character.status.rawValue)"
-        self.displayBirthday = "Birthdate: \(character.birthday)"
-        self.displayAppearence = "Appeared in (seasons): " + character.appearance.map { String($0) }.joined(separator: ", ")
-        self.displayPortrayed = "Portrayed by: \(character.portrayed)"
+        self.name = "\(character.name)"
+        self.nickname = "\(character.nickname)"
+        self.status = "\(character.status.rawValue)"
+        self.birthday = "\(character.birthday)"
+        self.appearences = "Seasons " + character.appearance.map { String($0) }.joined(separator: ", ")
+        self.portrayed = "\(character.portrayed)"
     }
 }
 
 extension CharacterViewModel {
-    func getAllProperties() -> Observable<[String]> {
-        let mirror = Mirror(reflecting: self).children.enumerated()
-        var stringValues: [String] = []
+    func getAllProperties() -> Observable<[(String, String)]> {
+        let mirror = Mirror(reflecting: self).children
+        var stringValues: [(String, String)] = []
         
-        for (index, property) in mirror where index != 0 && index != 2 {
-            stringValues.append(property.value as! String)
+        for (key, value) in mirror where key != "character" && key != "displayName" {
+            if let key = key, let value = value as? String {
+                stringValues.append((key, value))
+            }
         }
     
         return Observable.just(stringValues)
