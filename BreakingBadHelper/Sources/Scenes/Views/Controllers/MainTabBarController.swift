@@ -22,7 +22,7 @@ class MainTabBarController: UITabBarController {
     
     private func setupViewControllers() {
         viewControllers = [
-            createNavigationController(for: CharactersController(), image: UIImage(systemName: "person")!)
+            createNavigationController(for: CharactersController(), image: UIImage(systemName: Strings.charactersTabImageName)!)
         ]
     }
 }
