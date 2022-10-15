@@ -11,7 +11,7 @@ import RxSwift
 class CharactersListViewModel {
     
     let title = Strings.title
-    let resource = Resource<Welcome>(url: URL(string: Strings.charactersUrlString)!)
+    let resource = Resource<CharacterResponse>(url: URL(string: Strings.charactersUrlString)!)
     var items: Observable<[CharacterViewModel]>!
     private let bag = DisposeBag()
     private let service: NetworkService

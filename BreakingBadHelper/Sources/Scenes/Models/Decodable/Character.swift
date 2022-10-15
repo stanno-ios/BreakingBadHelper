@@ -10,7 +10,7 @@ import Foundation
 struct Character: Decodable {
     let charID: Int
     let name: String
-    let birthday: Birthday
+    let birthday: String
     let occupation: [String]
     let img: String
     let status: Status
@@ -27,14 +27,6 @@ struct Character: Decodable {
     }
 }
 
-enum Birthday: String, Decodable {
-    case the07081993 = "07-08-1993"
-    case the08111970 = "08-11-1970"
-    case the09071958 = "09-07-1958"
-    case the09241984 = "09-24-1984"
-    case unknown = "Unknown"
-}
-
 enum Category: String, Decodable {
     case betterCallSaul = "Better Call Saul"
     case breakingBad = "Breaking Bad"
@@ -48,4 +40,4 @@ enum Status: String, Decodable {
     case unknown = "Unknown"
 }
 
-typealias Welcome = [Character]
+typealias CharacterResponse = [Character]

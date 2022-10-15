@@ -89,8 +89,8 @@ class CharacterTableViewCell: UITableViewCell {
     
     func configure(with model: CharacterViewModel) {
         self.characterImageView.sd_setImage(with: URL(string: model.displayImage)!)
-        self.characterName.text = model.displayName
-        self.nicknameLabel.text = model.displayNickname
-        self.statusLabel.text = model.displayStatus
+        self.characterName.text = model.displaySingleName
+        self.nicknameLabel.text = model.displaySingleNickname
+        self.statusLabel.text = model.displaySingleStatus
     }
 }

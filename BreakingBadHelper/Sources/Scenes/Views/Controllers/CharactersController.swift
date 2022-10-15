@@ -42,6 +42,17 @@ class CharactersController: UIViewController {
                 cell.configure(with: model)
                 cell.accessoryType = .disclosureIndicator
             }.disposed(by: bag)
+        
+        charactersView.tableView.rx
+            .modelSelected(CharacterViewModel.self)
+            .bind { [unowned self] character in
+                if let selectedRow = charactersView.tableView.indexPathForSelectedRow {
+                    charactersView.tableView.deselectRow(at: selectedRow, animated: true)
+                }
+                let detailsController = CharacterDetailsController()
+                detailsController.viewModel = character
+                self.navigationController?.pushViewController(detailsController, animated: true)
+            }.disposed(by: bag)
     }
 }
 
@@ -50,8 +61,9 @@ extension CharactersController: UITableViewDelegate {
         return self.view.bounds.height / 5
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//       
+//    }
 }
 

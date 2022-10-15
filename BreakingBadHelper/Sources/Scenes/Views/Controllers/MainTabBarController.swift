@@ -12,6 +12,7 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupViewControllers()
+        self.tabBar.tintColor = .label
     }
     
     fileprivate func createNavigationController(for rootViewController: UIViewController, image: UIImage) -> UIViewController {

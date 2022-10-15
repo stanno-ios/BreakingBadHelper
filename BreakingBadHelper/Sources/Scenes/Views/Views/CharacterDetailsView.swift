@@ -1,5 +1,5 @@
 //
-//  CharactersView.swift
+//  CharacterDetailsView.swift
 //  BreakingBadHelper
 //
 //  Created by Stanislav Rassolenko on 10/15/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CharactersView: UIView {
+class CharacterDetailsView: UIView {
     
     // MARK: - Initialization
     
@@ -24,7 +24,6 @@ class CharactersView: UIView {
     private func commonInit() {
         setupHierarchy()
         setupLayout()
-        setupView()
     }
     
     // MARK: - UI Elements
@@ -32,20 +31,16 @@ class CharactersView: UIView {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: CharacterTableViewCell.identifier)
+        tableView.register(CharacterInfoCell.self, forCellReuseIdentifier: CharacterInfoCell.identifier)
+        tableView.register(CharacterImageCell.self, forCellReuseIdentifier: CharacterImageCell.identifier)
+        tableView.separatorStyle = .none
         return tableView
-    }()
-    
-    lazy var searchController: UISearchController = {
-        let controller = UISearchController()
-        return controller
     }()
     
     // MARK: - Configuration
     
     private func setupHierarchy() {
         self.addSubview(tableView)
-        tableView.tableHeaderView = searchController.searchBar
     }
     
     private func setupLayout() {
@@ -55,9 +50,5 @@ class CharactersView: UIView {
             tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
-    }
-    
-    private func setupView() {
-        self.backgroundColor = .systemBackground
     }
 }
