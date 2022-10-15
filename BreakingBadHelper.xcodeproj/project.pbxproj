@@ -7,23 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1DCA19D0FDC226F797D97CB1 /* Pods_BreakingBadHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE3571438ED145C0722972F /* Pods_BreakingBadHelper.framework */; };
 		3A11042928FA76D1005BB660 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A11042828FA76D1005BB660 /* AppDelegate.swift */; };
 		3A11042B28FA76D1005BB660 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A11042A28FA76D1005BB660 /* SceneDelegate.swift */; };
-		3A11042D28FA76D1005BB660 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A11042C28FA76D1005BB660 /* ViewController.swift */; };
-		3A11043028FA76D1005BB660 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A11042E28FA76D1005BB660 /* Main.storyboard */; };
+		3A11042D28FA76D1005BB660 /* CharactersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A11042C28FA76D1005BB660 /* CharactersController.swift */; };
 		3A11043228FA76D3005BB660 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A11043128FA76D3005BB660 /* Assets.xcassets */; };
 		3A11043528FA76D3005BB660 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A11043328FA76D3005BB660 /* LaunchScreen.storyboard */; };
+		3A11044828FA7991005BB660 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A11044728FA7991005BB660 /* MainTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2430DB23096EB64622BCD713 /* Pods-BreakingBadHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakingBadHelper.debug.xcconfig"; path = "Target Support Files/Pods-BreakingBadHelper/Pods-BreakingBadHelper.debug.xcconfig"; sourceTree = "<group>"; };
+		2F2172275B122F16706C02FC /* Pods-BreakingBadHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakingBadHelper.release.xcconfig"; path = "Target Support Files/Pods-BreakingBadHelper/Pods-BreakingBadHelper.release.xcconfig"; sourceTree = "<group>"; };
 		3A11042528FA76D1005BB660 /* BreakingBadHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakingBadHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A11042828FA76D1005BB660 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A11042A28FA76D1005BB660 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3A11042C28FA76D1005BB660 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3A11042F28FA76D1005BB660 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3A11042C28FA76D1005BB660 /* CharactersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersController.swift; sourceTree = "<group>"; };
 		3A11043128FA76D3005BB660 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A11043428FA76D3005BB660 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A11043628FA76D3005BB660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A11044728FA7991005BB660 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		8AE3571438ED145C0722972F /* Pods_BreakingBadHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreakingBadHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DCA19D0FDC226F797D97CB1 /* Pods_BreakingBadHelper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07F0050471E77B8415F168DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8AE3571438ED145C0722972F /* Pods_BreakingBadHelper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3A11041C28FA76D1005BB660 = {
 			isa = PBXGroup;
 			children = (
 				3A11042728FA76D1005BB660 /* BreakingBadHelper */,
 				3A11042628FA76D1005BB660 /* Products */,
+				CAC823FEBE865062281DC251 /* Pods */,
+				07F0050471E77B8415F168DB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +71,112 @@
 		3A11042728FA76D1005BB660 /* BreakingBadHelper */ = {
 			isa = PBXGroup;
 			children = (
-				3A11042828FA76D1005BB660 /* AppDelegate.swift */,
-				3A11042A28FA76D1005BB660 /* SceneDelegate.swift */,
-				3A11042C28FA76D1005BB660 /* ViewController.swift */,
-				3A11042E28FA76D1005BB660 /* Main.storyboard */,
-				3A11043128FA76D3005BB660 /* Assets.xcassets */,
-				3A11043328FA76D3005BB660 /* LaunchScreen.storyboard */,
-				3A11043628FA76D3005BB660 /* Info.plist */,
+				3A11043D28FA78FA005BB660 /* Resources */,
+				3A11043C28FA78F1005BB660 /* Sources */,
 			);
 			path = BreakingBadHelper;
+			sourceTree = "<group>";
+		};
+		3A11043C28FA78F1005BB660 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3A11044628FA795C005BB660 /* App */,
+				3A11044028FA791B005BB660 /* Views */,
+				3A11043F28FA7914005BB660 /* Models */,
+				3A11043E28FA7907005BB660 /* ViewModels */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		3A11043D28FA78FA005BB660 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3A11044528FA794C005BB660 /* Supporting files */,
+				3A11044428FA7946005BB660 /* Configuration */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3A11043E28FA7907005BB660 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3A11043F28FA7914005BB660 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3A11044028FA791B005BB660 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3A11044328FA7932005BB660 /* Storyboards */,
+				3A11044228FA792E005BB660 /* Views */,
+				3A11044128FA7928005BB660 /* Controllers */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3A11044128FA7928005BB660 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3A11042C28FA76D1005BB660 /* CharactersController.swift */,
+				3A11044728FA7991005BB660 /* MainTabBarController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3A11044228FA792E005BB660 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3A11044328FA7932005BB660 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				3A11043328FA76D3005BB660 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		3A11044428FA7946005BB660 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				3A11043628FA76D3005BB660 /* Info.plist */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		3A11044528FA794C005BB660 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				3A11043128FA76D3005BB660 /* Assets.xcassets */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		3A11044628FA795C005BB660 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3A11042828FA76D1005BB660 /* AppDelegate.swift */,
+				3A11042A28FA76D1005BB660 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		CAC823FEBE865062281DC251 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2430DB23096EB64622BCD713 /* Pods-BreakingBadHelper.debug.xcconfig */,
+				2F2172275B122F16706C02FC /* Pods-BreakingBadHelper.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +186,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A11043928FA76D3005BB660 /* Build configuration list for PBXNativeTarget "BreakingBadHelper" */;
 			buildPhases = (
+				277D32178181D9BFC9990B90 /* [CP] Check Pods Manifest.lock */,
 				3A11042128FA76D1005BB660 /* Sources */,
 				3A11042228FA76D1005BB660 /* Frameworks */,
 				3A11042328FA76D1005BB660 /* Resources */,
+				4511A6120906E757D68B6003 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,19 +241,61 @@
 			files = (
 				3A11043528FA76D3005BB660 /* LaunchScreen.storyboard in Resources */,
 				3A11043228FA76D3005BB660 /* Assets.xcassets in Resources */,
-				3A11043028FA76D1005BB660 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		277D32178181D9BFC9990B90 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BreakingBadHelper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4511A6120906E757D68B6003 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BreakingBadHelper/Pods-BreakingBadHelper-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BreakingBadHelper/Pods-BreakingBadHelper-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BreakingBadHelper/Pods-BreakingBadHelper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3A11042128FA76D1005BB660 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A11042D28FA76D1005BB660 /* ViewController.swift in Sources */,
+				3A11042D28FA76D1005BB660 /* CharactersController.swift in Sources */,
 				3A11042928FA76D1005BB660 /* AppDelegate.swift in Sources */,
+				3A11044828FA7991005BB660 /* MainTabBarController.swift in Sources */,
 				3A11042B28FA76D1005BB660 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +303,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3A11042E28FA76D1005BB660 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3A11042F28FA76D1005BB660 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3A11043328FA76D3005BB660 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -282,6 +430,7 @@
 		};
 		3A11043A28FA76D3005BB660 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2430DB23096EB64622BCD713 /* Pods-BreakingBadHelper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -289,10 +438,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MK8LDS6W26;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BreakingBadHelper/Info.plist;
+				INFOPLIST_FILE = BreakingBadHelper/Resources/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -310,6 +459,7 @@
 		};
 		3A11043B28FA76D3005BB660 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F2172275B122F16706C02FC /* Pods-BreakingBadHelper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -317,10 +467,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MK8LDS6W26;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BreakingBadHelper/Info.plist;
+				INFOPLIST_FILE = BreakingBadHelper/Resources/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
