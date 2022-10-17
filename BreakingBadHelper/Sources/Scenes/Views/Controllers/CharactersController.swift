@@ -38,7 +38,6 @@ class CharactersController: UIViewController {
     private func setupController() {
         view = CharactersView()
         self.viewModel = CharactersListViewModel()
-        self.title = self.viewModel.title
         self.navigationController?.navigationBar.prefersLargeTitles = true
         charactersView?.tableView.rx.setDelegate(self).disposed(by: bag)
         self.bindViewModel()

@@ -22,8 +22,14 @@ class MainTabBarController: UITabBarController {
     }
     
     private func setupViewControllers() {
+        let charactersController = CharactersController()
+        charactersController.title = "Characters"
+        let episodesController = EpisodesController()
+        episodesController.title = "Episodes"
+        
         viewControllers = [
-            createNavigationController(for: CharactersController(), image: UIImage(systemName: Strings.charactersTabImageName)!)
+            createNavigationController(for: charactersController, image: UIImage(systemName: Strings.charactersTabImageName)!),
+            createNavigationController(for: episodesController, image: UIImage(systemName: "play.laptopcomputer")!)
         ]
     }
 }
