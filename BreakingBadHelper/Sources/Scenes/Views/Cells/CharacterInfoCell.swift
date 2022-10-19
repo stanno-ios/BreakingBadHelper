@@ -44,7 +44,7 @@ class CharacterInfoCell: UITableViewCell {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 16, weight: .regular)
+        label.font = .systemFont(ofSize: Metric.titleFontSize, weight: .regular)
         label.textColor = .systemGray3
         label.textAlignment = .left
         return label
@@ -53,7 +53,7 @@ class CharacterInfoCell: UITableViewCell {
     private lazy var infoLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 18, weight: .regular)
+        label.font = .systemFont(ofSize: Metric.infoLabelFontSize, weight: .regular)
         label.textAlignment = .left
         return label
     }()
@@ -68,10 +68,10 @@ class CharacterInfoCell: UITableViewCell {
     
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
-            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8)
+            stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: Metric.cellPadding / 2),
+            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Metric.cellPadding),
+            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Metric.cellPadding),
+            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Metric.cellPadding / 2)
         ])
     }
     

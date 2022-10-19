@@ -38,7 +38,7 @@ class QuoteCollectionViewCell: UICollectionViewCell {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 5
+        stackView.spacing = Metric.stackSpacing
         return stackView
     }()
     
@@ -46,7 +46,7 @@ class QuoteCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 15
+        imageView.layer.cornerRadius = Metric.cellCornerRadius
         imageView.contentMode = .scaleAspectFill
         imageView.addOverlay()
         return imageView
@@ -55,7 +55,7 @@ class QuoteCollectionViewCell: UICollectionViewCell {
     private lazy var authorName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 16, weight: .semibold)
+        label.font = .systemFont(ofSize: Metric.authorLabelFontSize, weight: .semibold)
         label.textAlignment = .left
         label.textColor = .white
         return label
@@ -64,9 +64,9 @@ class QuoteCollectionViewCell: UICollectionViewCell {
     private lazy var quoteLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
+        label.numberOfLines = Metric.quoteLabelNumberOfLines
         label.adjustsFontSizeToFitWidth = true
-        label.font = .systemFont(ofSize: 14, weight: .regular)
+        label.font = .systemFont(ofSize: Metric.quoteLabelFontSize, weight: .regular)
         label.textAlignment = .left
         label.textColor = .white
         return label
@@ -88,21 +88,20 @@ class QuoteCollectionViewCell: UICollectionViewCell {
             characterImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             characterImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
-//            stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
-            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10)
+            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Metric.cellPadding),
+            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Metric.cellPadding),
+            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Metric.cellPadding)
         ])
     }
     
     private func setupView() {
         self.clipsToBounds = true
-        self.layer.cornerRadius = 15
+        self.layer.cornerRadius = Metric.cellCornerRadius
         self.isUserInteractionEnabled = false
     }
     
     func configure(with model: QuoteViewModel) {
-        self.characterImage.sd_setImage(with: URL(string: model.imageURLString ?? "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png?20200912122019"))
+        self.characterImage.sd_setImage(with: URL(string: model.imageURLString ?? Strings.defaultImageUrlString))
         self.authorName.text = model.displayAuthor
         self.quoteLabel.text = model.displayQuote
     }

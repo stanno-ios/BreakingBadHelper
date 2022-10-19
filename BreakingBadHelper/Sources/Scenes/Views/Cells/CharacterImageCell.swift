@@ -38,7 +38,7 @@ class CharacterImageCell: UITableViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 15
+        imageView.layer.cornerRadius = Metric.imageViewCornerRadius
         return imageView
     }()
     
@@ -50,10 +50,10 @@ class CharacterImageCell: UITableViewCell {
     
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            characterImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            characterImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            characterImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            characterImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16)
+            characterImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: Metric.imageViewPadding),
+            characterImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Metric.imageViewPadding),
+            characterImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Metric.imageViewPadding),
+            characterImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Metric.imageViewPadding)
         ])
     }
     

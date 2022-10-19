@@ -36,36 +36,36 @@ class EpisodeCell: UITableViewCell {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 10
+        stackView.spacing = Metric.contentSpacing
         stackView.alignment = .leading
         return stackView
     }()
     
     private lazy var episodeRowStack: UIStackView = createRowStackView()
-    private lazy var episodeRowTitle: UILabel = createLabel(with: .systemFont(ofSize: 16, weight: .regular), textColor: .systemGray2)
-    private lazy var episodeTitle: UILabel = createLabel(with: .systemFont(ofSize: 24, weight: .bold), textColor: .label)
+    private lazy var episodeRowTitle: UILabel = createLabel(with: .systemFont(ofSize: Metric.rowTitleFontSize, weight: .regular), textColor: .systemGray2)
+    private lazy var episodeTitle: UILabel = createLabel(with: .systemFont(ofSize: Metric.episodeTitleFontSize, weight: .bold), textColor: .label)
     
     private lazy var seasonRowStack: UIStackView = createRowStackView()
-    private lazy var seasonRowTitle: UILabel = createLabel(with: .systemFont(ofSize: 16, weight: .regular), textColor: .systemGray2)
-    private lazy var seasonTitle: UILabel = createLabel(with: .systemFont(ofSize: 18, weight: .semibold), textColor: .label)
+    private lazy var seasonRowTitle: UILabel = createLabel(with: .systemFont(ofSize: Metric.rowTitleFontSize, weight: .regular), textColor: .systemGray2)
+    private lazy var seasonTitle: UILabel = createLabel(with: .systemFont(ofSize: Metric.titleFontSize, weight: .semibold), textColor: .label)
     
     private lazy var charactersRowStack: UIStackView = createRowStackView()
-    private lazy var charactersRowTitle: UILabel = createLabel(with: .systemFont(ofSize: 16, weight: .regular), textColor: .systemGray2)
-    private lazy var charactersLabel: UILabel = createLabel(with: .systemFont(ofSize: 18, weight: .regular), textColor: .label)
+    private lazy var charactersRowTitle: UILabel = createLabel(with: .systemFont(ofSize: Metric.rowTitleFontSize, weight: .regular), textColor: .systemGray2)
+    private lazy var charactersLabel: UILabel = createLabel(with: .systemFont(ofSize: Metric.titleFontSize, weight: .regular), textColor: .label)
     
     private lazy var episodeNumberRowStack: UIStackView = createRowStackView()
-    private lazy var episodeNumberRowTitle: UILabel = createLabel(with: .systemFont(ofSize: 16, weight: .regular), textColor: .systemGray2)
-    private lazy var episodeNumber: UILabel = createLabel(with: .systemFont(ofSize: 18, weight: .regular), textColor: .label)
+    private lazy var episodeNumberRowTitle: UILabel = createLabel(with: .systemFont(ofSize: Metric.rowTitleFontSize, weight: .regular), textColor: .systemGray2)
+    private lazy var episodeNumber: UILabel = createLabel(with: .systemFont(ofSize: Metric.titleFontSize, weight: .regular), textColor: .label)
     
     private lazy var airedRowStack: UIStackView = createRowStackView()
-    private lazy var airedRowTitle: UILabel = createLabel(with: .systemFont(ofSize: 16, weight: .regular), textColor: .systemGray2)
-    private lazy var airedTitle: UILabel = createLabel(with: .systemFont(ofSize: 18, weight: .regular), textColor: .label)
+    private lazy var airedRowTitle: UILabel = createLabel(with: .systemFont(ofSize: Metric.rowTitleFontSize, weight: .regular), textColor: .systemGray2)
+    private lazy var airedTitle: UILabel = createLabel(with: .systemFont(ofSize: Metric.titleFontSize, weight: .regular), textColor: .label)
     
     private func createLabel(with font: UIFont, textColor: UIColor) -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = font
-        label.numberOfLines = 0
+        label.numberOfLines = Metric.labelNumberOfLines
         label.textAlignment = .left
         label.textColor = textColor
         return label
@@ -74,7 +74,7 @@ class EpisodeCell: UITableViewCell {
     private func createRowStackView() -> UIStackView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.spacing = 5
+        stackView.spacing = Metric.rowSpacing
         stackView.distribution = .fill
         stackView.axis = .vertical
         return stackView
@@ -103,23 +103,23 @@ class EpisodeCell: UITableViewCell {
     
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            contentStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            contentStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            contentStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            contentStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16)
+            contentStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: Metric.cellPadding),
+            contentStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Metric.cellPadding),
+            contentStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Metric.cellPadding),
+            contentStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Metric.cellPadding)
         ])
     }
     
     func configure(with model: EpisodeViewModel) {
-        self.episodeRowTitle.text = "Title"
+        self.episodeRowTitle.text = Strings.title
         self.episodeTitle.text = model.displayTitle
-        self.seasonRowTitle.text = "Season"
+        self.seasonRowTitle.text = Strings.season
         self.seasonTitle.text = model.displaySeason
-        self.charactersRowTitle.text = "Characters"
+        self.charactersRowTitle.text = Strings.characters
         self.charactersLabel.text = model.displayCharacters
-        self.episodeNumberRowTitle.text = "Episode"
+        self.episodeNumberRowTitle.text = Strings.episode
         self.episodeNumber.text = model.displayEpisodeNumber
-        self.airedRowTitle.text = "Aired on"
+        self.airedRowTitle.text = Strings.airedOn
         self.airedTitle.text = model.displayAirDate
     }
 }

@@ -10,8 +10,7 @@ import RxSwift
 
 class EpisodesListViewModel {
     
-    let title = "Episodes"
-    let resource = Resource<EpisodesResponse>(url: URL(string: "https://www.breakingbadapi.com/api/episodes")!)
+    let resource = Resource<EpisodesResponse>(url: URL(string: Strings.resourceUrl)!)
     var items: Observable<[EpisodeViewModel]>!
     private let bag = DisposeBag()
     private let service: NetworkService

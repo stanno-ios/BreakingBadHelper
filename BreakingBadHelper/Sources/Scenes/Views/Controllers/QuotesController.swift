@@ -32,10 +32,11 @@ class QuotesController: UIViewController {
         super.viewDidLoad()
         self.view = QuotesView()
         self.viewModel = QuotesListViewModel()
-//        self.quotesView?.collectionView.dataSource = self
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.bindViewModel()
     }
+    
+    // MARK: - Rx bindings
     
     private func bindViewModel() {
         guard let quotesView = quotesView else { return }
@@ -45,20 +46,4 @@ class QuotesController: UIViewController {
                 cell.configure(with: model)
             }.disposed(by: bag)
     }
-}
-
-extension QuotesController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "testCell", for: indexPath)
-        cell.backgroundColor = .green
-        cell.clipsToBounds = true
-        cell.layer.cornerRadius = 15
-        return cell
-    }
-    
-    
 }

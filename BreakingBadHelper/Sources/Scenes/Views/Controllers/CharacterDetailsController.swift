@@ -11,6 +11,8 @@ import RxCocoa
 
 class CharacterDetailsController: UIViewController {
     
+    // MARK: - Bag
+    
     private let bag = DisposeBag()
     
     // MARK: - ViewModel
@@ -38,13 +40,11 @@ class CharacterDetailsController: UIViewController {
     
     private func bindViewModel() {
         guard let characterDetailsView = characterDetailsView else { return }
-        let properties = viewModel.getAllProperties()
-        properties.asObservable()
+        self.viewModel.getAllProperties()
             .observe(on: MainScheduler.instance)
             .bind(to: characterDetailsView.tableView.rx.items) { tv, row, item -> UITableViewCell in
                 if row == 0 {
                     let cell = tv.dequeueReusableCell(withIdentifier: CharacterImageCell.identifier, for: IndexPath(row: row, section: 0)) as! CharacterImageCell
-                    print(item)
                     cell.configure(with: item.1)
                     return cell
                 } else {
@@ -61,9 +61,9 @@ class CharacterDetailsController: UIViewController {
 extension CharacterDetailsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return self.view.bounds.height * 0.6
+            return self.view.bounds.height * Metric.rowHeightMultiplier
         } else {
-            return 55
+            return Metric.defaultRowHeight
         }
     }
 }

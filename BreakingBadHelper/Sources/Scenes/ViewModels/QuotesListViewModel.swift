@@ -9,8 +9,8 @@ import Foundation
 import RxSwift
 
 class QuotesListViewModel {
-    let quotesResource = Resource<QuotesResponse>(url: URL(string: "https://www.breakingbadapi.com/api/quotes")!)
-    let charactersResource = Resource<CharacterResponse>(url: URL(string: "https://www.breakingbadapi.com/api/characters")!)
+    let quotesResource = Resource<QuotesResponse>(url: URL(string: Strings.quotesUrl)!)
+    let charactersResource = Resource<CharacterResponse>(url: URL(string: Strings.charactersUrl)!)
     var items: Observable<[QuoteViewModel]>!
     private let service: NetworkService
     

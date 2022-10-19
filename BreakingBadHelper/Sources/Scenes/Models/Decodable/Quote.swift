@@ -12,5 +12,4 @@ struct Quote: Decodable {
     let author: String
 }
 
-
 typealias QuotesResponse = [Quote]

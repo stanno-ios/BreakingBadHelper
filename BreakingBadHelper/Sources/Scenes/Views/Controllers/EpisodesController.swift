@@ -38,7 +38,7 @@ class EpisodesController: UIViewController {
         self.bindCellSelection()
     }
     
-    // MARK: - Bindings
+    // MARK: - Rx bindings
     
     private func bindViewModel() {
         guard let episodesView = episodesView else { return }
