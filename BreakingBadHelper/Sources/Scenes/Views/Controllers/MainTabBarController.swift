@@ -15,21 +15,18 @@ class MainTabBarController: UITabBarController {
         self.tabBar.tintColor = .label
     }
     
-    fileprivate func createNavigationController(for rootViewController: UIViewController, image: UIImage) -> UIViewController {
+    fileprivate func createNavigationController(for rootViewController: UIViewController, image: UIImage, title: String) -> UIViewController {
+        rootViewController.title = title
         let controller = UINavigationController(rootViewController: rootViewController)
         controller.tabBarItem.image = image
         return controller
     }
     
     private func setupViewControllers() {
-        let charactersController = CharactersController()
-        charactersController.title = "Characters"
-        let episodesController = EpisodesController()
-        episodesController.title = "Episodes"
-        
         viewControllers = [
-            createNavigationController(for: charactersController, image: UIImage(systemName: Strings.charactersTabImageName)!),
-            createNavigationController(for: episodesController, image: UIImage(systemName: "play.laptopcomputer")!)
+            createNavigationController(for: CharactersController(), image: UIImage(systemName: Strings.charactersTabImageName)!, title: "Characters"),
+            createNavigationController(for: EpisodesController(), image: UIImage(systemName: "play.laptopcomputer")!, title: "Episodes"),
+            createNavigationController(for: QuotesController(), image: UIImage(systemName: "newspaper")!, title: "Quotes")
         ]
     }
 }
