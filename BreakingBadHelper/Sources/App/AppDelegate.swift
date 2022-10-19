@@ -11,7 +11,10 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let barAppearence = UINavigationBarAppearance()
+        barAppearence.configureWithOpaqueBackground()
+        UINavigationBar.appearance().standardAppearance = barAppearence
+        UINavigationBar.appearance().scrollEdgeAppearance = barAppearence
         return true
     }
 
